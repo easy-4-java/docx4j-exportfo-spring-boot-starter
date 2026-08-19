@@ -7,6 +7,11 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 @ConditionalOnProperty(prefix = Docx4jExportfoProperties.PREFIX, value = "enabled", havingValue = "true")
 @EnableConfigurationProperties({ Docx4jExportfoProperties.class })
+/**
+ * <p>Auto-configuration for Docx4jExportfoAutoConfiguration.</p>
+ * @author <a href="https://github.com/loong10k">Loong Wan</a>
+ * @since 1.0.0
+ */
 public class Docx4jExportfoAutoConfiguration {
 	
 	/**
@@ -63,6 +68,11 @@ public class Docx4jExportfoAutoConfiguration {
 	 *//*
 	@Bean("singleSignOutHttpSessionListener")
 	@ConditionalOnMissingBean(name = "singleSignOutHttpSessionListener")
+    /**
+     * <p>Single sign out http session listener.</p>
+     * @param properties
+     * @return the result
+     */
     public ServletListenerRegistrationBean<SingleSignOutHttpSessionListener> singleSignOutHttpSessionListener(XfireProperties properties) {  
     	ServletListenerRegistrationBean<SingleSignOutHttpSessionListener> listener = new ServletListenerRegistrationBean<SingleSignOutHttpSessionListener>();
         listener.setEnabled(properties.isEnabled());  
@@ -76,6 +86,11 @@ public class Docx4jExportfoAutoConfiguration {
 	 * 该过滤器用于实现单点登出功能，单点退出配置，一定要放在其他filter之前
 	 *//*
 	@Bean
+	/**
+	 * <p>Single sign out filter.</p>
+	 * @param properties
+	 * @return the result
+	 */
 	public FilterRegistrationBean singleSignOutFilter(XfireProperties properties) {
 		FilterRegistrationBean filterRegistration = new FilterRegistrationBean();
 		filterRegistration.setFilter(new SingleSignOutFilter());
@@ -99,6 +114,11 @@ public class Docx4jExportfoAutoConfiguration {
 	 * 该过滤器负责用户的认证工作
 	 *//*
 	@Bean
+	/**
+	 * <p>Authentication filter.</p>
+	 * @param properties
+	 * @return the result
+	 */
 	public FilterRegistrationBean authenticationFilter(XfireProperties properties){
 		FilterRegistrationBean filterRegistration = new FilterRegistrationBean();
 		filterRegistration.setEnabled(properties.isEnabled());  
@@ -130,6 +150,11 @@ public class Docx4jExportfoAutoConfiguration {
 	 * 该过滤器负责对Ticket的校验工作
 	 *//*
 	@Bean
+	/**
+	 * <p>Ticket validation filter.</p>
+	 * @param properties
+	 * @return the result
+	 */
 	public FilterRegistrationBean ticketValidationFilter(XfireProperties properties ){
 		FilterRegistrationBean filterRegistration = new FilterRegistrationBean();
 		filterRegistration.setEnabled(properties.isEnabled()); 
@@ -199,6 +224,11 @@ public class Docx4jExportfoAutoConfiguration {
 	 * 该过滤器对HttpServletRequest请求包装， 可通过HttpServletRequest的getRemoteUser()方法获得登录用户的登录名
 	 *//*
 	@Bean
+	/**
+	 * <p>Http servlet request wrapper filter.</p>
+	 * @param properties
+	 * @return the result
+	 */
 	public FilterRegistrationBean httpServletRequestWrapperFilter(XfireProperties properties ){
 		FilterRegistrationBean filterRegistration = new FilterRegistrationBean();
 		filterRegistration.setFilter(new HttpServletRequestWrapperFilter());
@@ -217,6 +247,11 @@ public class Docx4jExportfoAutoConfiguration {
 	 * 这个类把Assertion信息放在ThreadLocal变量中，这样应用程序不在web层也能够获取到当前登录信息
 	 *//*
 	@Bean
+	/**
+	 * <p>Assertion thread local filter.</p>
+	 * @param properties
+	 * @return the result
+	 */
 	public FilterRegistrationBean assertionThreadLocalFilter(XfireProperties properties) {
 		FilterRegistrationBean filterRegistration = new FilterRegistrationBean();
 		filterRegistration.setFilter(new AssertionThreadLocalFilter());
