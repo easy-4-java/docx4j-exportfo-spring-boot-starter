@@ -381,6 +381,7 @@
                     <configuration>
                         <skip>false</skip>
                         <skipTests>false</skipTests>
+                        <failIfNoTests>true</failIfNoTests>
                         <!--suppress UnresolvedMavenProperty -->
                         <argLine>${argLine} -Xmx1024m -Dfile.encoding=UTF-8</argLine>
                         <additionalClasspathElements>
@@ -388,6 +389,7 @@
                         </additionalClasspathElements>
                         <includes>
                             <include>**/*Test.java</include>
+                            <include>**/*Tests.java</include>
                             <include>**/*_Test.java</include>
                         </includes>
                         <excludes>
